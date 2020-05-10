@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nextcloud-config
+  labels:
+    app: nextcloud
+data:
+  TZ: Europe/Amsterdam
+  REDIS_HOST: redis
+  POSTGRES_HOST: postgres
+  POSTGRES_DB: nextcloud
+  SMTP_HOST: smtp.gmail.com
+  SMTP_SECURE: ssl
+  MAIL_FROM_ADDRESS: cloud
+  OVERWRITEPROTOCOL: https
