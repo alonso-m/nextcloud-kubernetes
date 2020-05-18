@@ -11,5 +11,5 @@ spec:
   accessModes:                                                                                                                                          
     - ReadWriteMany                                                                                                                                     
   nfs:                                                                                                                                                  
-    path: /export/ssd/nextcloud
-    server: node06
+    path: /zfs/application-data/nextcloud
+    server: node05

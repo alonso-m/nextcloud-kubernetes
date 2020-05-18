@@ -6,7 +6,7 @@ metadata:
     app: nextcloud
 data:
   TZ: Europe/Amsterdam
-  REDIS_HOST: redis
+  REDIS_HOST: localhost
   POSTGRES_HOST: postgres
   POSTGRES_DB: nextcloud
   SMTP_HOST: smtp.gmail.com
