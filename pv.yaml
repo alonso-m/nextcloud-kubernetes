@@ -11,5 +11,5 @@ spec:
   accessModes:                                                                                                                                          
     - ReadWriteMany                                                                                                                                     
   nfs:                                                                                                                                                  
-    path: /zfs/application-data/nextcloud
+    path: /zfs/encrypted/application-data/nextcloud
     server: node05
