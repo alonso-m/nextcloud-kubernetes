@@ -6,6 +6,8 @@ metadata:
     app: nextcloud
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: nextcloud
@@ -35,7 +37,7 @@ spec:
       #              topologyKey: "kubernetes.io/hostname"        
       containers:
       - name: nextcloud
-        image: nextcloud:stable-apache
+        image: nextcloud:18.0.4-apache
         imagePullPolicy: "Always"
         ports:
         - containerPort: 80
