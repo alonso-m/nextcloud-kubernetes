@@ -35,11 +35,11 @@ spec:
       #                  values:                                  
       #                  - jellyfin                               
       #              topologyKey: "kubernetes.io/hostname"        
-      tolerations:
-      - key: "node-role.kubernetes.io/master"
-        operator: "Equal"
-        value: "true"
-        effect: "NoSchedule"
+      #      tolerations:
+      #      - key: "node-role.kubernetes.io/master"
+      #        operator: "Equal"
+      #        value: "true"
+      #        effect: "NoSchedule"
       containers:
       - name: nextcloud
         image: nextcloud:stable-apache
@@ -64,7 +64,7 @@ spec:
           - containerPort: 6379
       restartPolicy: Always
       nodeSelector:
-        k3s.io/hostname: "node00"
+        k3s.io/hostname: "node03"
       volumes:
         - name: nextcloud-pv
           persistentVolumeClaim:
