@@ -54,6 +54,8 @@ spec:
             name: postgres-user-creds
         - secretRef:
             name: nextcloud
+        - secretRef:
+            name: redis
         volumeMounts:
         - mountPath: /var/www/html
           name: nextcloud-pv
@@ -62,9 +64,19 @@ spec:
         imagePullPolicy: "Always"
         ports:
           - containerPort: 6379
+        envFrom:
+        - secretRef:
+            name: redis
+        command: ["redis-server"]
+        args: ["--requirepass $(REDIS_HOST_PASSWORD)"]
       restartPolicy: Always
+      tolerations:
+      - key: "node-role.kubernetes.io/master"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
       nodeSelector:
-        k3s.io/hostname: "node03"
+        k3s.io/hostname: "node00"
       volumes:
         - name: nextcloud-pv
           persistentVolumeClaim:
